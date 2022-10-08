@@ -1,0 +1,73 @@
+
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 87.5vh; 
+}
+.img-container{
+    display: flex;
+    padding-top:  200px;
+    padding-bottom: 200px;
+    justify-content: space-between;
+    gap: 100px;
+}
+.container-text{
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 45px;
+
+}
+.computerLP{
+    width: 600px;
+    
+}
+h2{
+   font-size: 3.582rem; 
+    width: 75%;
+
+}
+.text{
+    display: flex;
+    justify-content: center;
+}
+h2 span{
+    
+    color: #3347B0;
+
+}
+.studant{
+    min-width: 300px;
+}
+.img-button{
+
+    max-width: 40%;
+    min-width: 40%;
+
+}
+.all-button{
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+.container-button-JS{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 500px;
+    height: 250px;
+    background: #3347B0;
+    border: 1px solid #000000;
+    box-shadow: 12px 12px 4px rgba(51, 71, 176, 0.5);
+}
+.a-button{
+    text-decoration: none;
+    color: #ffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 64px;
+
+}
