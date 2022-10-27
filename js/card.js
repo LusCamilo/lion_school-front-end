@@ -3,40 +3,36 @@
 import  { getCursos } from "./api.js"
 
 
-const criarCard = (variavel)=>{
+const createCards = (dados) => {
 
-    
     const a = document.createElement('a')
     const div = document.createElement('div')
     const img = document.createElement('img')
-    
-    img.src = variavel.icone
-    div.classList.add('container-button-JS')
-    a.classList.add('a-button')
-    img.classList.add('img-button')
-    a.textContent = variavel.sigla
-    a.href = './front/html/cards.html'
-    
+    img.src = dados.icone
+
+    img.classList.add('icone')
+    div.classList.add('cards')
     a.classList.add('link')
-   
-    div.appendChild(img) 
+
+    a.textContent = dados.sigla
+    a.href = './html/cards.html'
+ 
+    a.appendChild(img)
     div.appendChild(a)
+
     return div
-} 
-
-// Essa é a função que vai projetar a função anterior na tela
-const pushCard = async () =>{
-    // Pega o card criado e traz para esta function
-    const card = document.getElementById('all-button')
-    // Cria uma váriavel da function anterior
-    const dados = await getCursos()
-    // Irá mapear a function anterior
-    const cardMap = dados.map(criarCard)
-    // Muda o conteúdo da function nos filhos da function
-    card.replaceChildren(...cardMap)
 }
-pushCard()
 
+const loadCard = async () => {
+
+    const cardContainer = document.getElementById('all-button')
+    const data = await getCursos()
+
+    const cards = data.cursos.map(createCards)
+
+    cardContainer.replaceChildren(...cards)
+}
+loadCard()
 // Cria a movimentação das páginas com o clique do usuário
 document.getElementById('all-button').addEventListener('click',(event) => {
     

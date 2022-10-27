@@ -41,7 +41,7 @@ h2 span{
 .studant{
     min-width: 300px;
 }
-.img-button{
+.icone{
 
     max-width: 40%;
     min-width: 40%;
@@ -54,17 +54,19 @@ h2 span{
     gap: 50px;
 
 }
-.container-button-JS{
+.cards{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     width: 500px;
     height: 250px;
     background: #3347B0;
     border: 1px solid #000000;
     box-shadow: 12px 12px 4px rgba(51, 71, 176, 0.5);
 }
-.a-button{
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     text-decoration: none;
     color: #ffff;
     font-family: 'Roboto', sans-serif;
