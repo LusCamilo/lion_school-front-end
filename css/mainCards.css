@@ -11,18 +11,18 @@ nav {
     background-color: #BCC2E5;
     height: 50px;
 }
-.cor{
+.aluno{
 
     height: 20px;
     width: 20px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
 
 }
-.azul{
+.cursando{
 
     background-color: #3347B0;
 }    
-.amarelo{
+.finalizado{
 
     background-color: #E5B657;
 

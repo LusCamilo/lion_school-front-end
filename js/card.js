@@ -36,7 +36,7 @@ loadCard()
 // Cria a movimentação das páginas com o clique do usuário
 document.getElementById('all-button').addEventListener('click',(event) => {
     
-    console.log (localStorage.setItem('sigla', event.target.textContent))
+    localStorage.setItem('sigla', event.target.textContent)
      
 })
 

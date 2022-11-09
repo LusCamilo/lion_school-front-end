@@ -1,69 +1,63 @@
 'use strict'
 
-import { getAlunosCurso, getAlunosStatus } from "./api.js"
+import {getAlunosCurso} from "./api.js"
 
-console.log(localStorage.getItem('sigla'))
 
-const createAlunos = (varv) => {
+const criarCard = async (dados) => {
 
     const a = document.createElement('a')
     const img = document.createElement('img')
-    const span = document.createElement('span')
-    a.classList.add('cards-alunos')
-    img.src = dados.foto
-    span.textContent = dados.nome
-    img.classList.add('dados')
-    span.classList.add('dados')
-    a.id = dados.matricula
-    a.href = './desempenho.html'
+    const p = document.createElement('p')
 
-    if (dados.status == 'Cursando') {
-        a.classList.add('cards-azul')
-    }
-    if (dados.status == 'Finalizado') {
-        a.classList.add('cards-amarelo')
-    }
-
+    a.href('../html/desempenho.html')
     a.appendChild(img)
-    a.appendChild(span)
-   
+    a.appendChild(p)
 
+    img.classList.add('img-aluno')
+    img.src(dados.foto)
+
+    p.classList.add('nome-aluno')
+    p.textContent(dados.nome)
+
+    div.classList.add('aluno-container')
+
+    if(dados.status == "Cursando"){
+
+        a.classList.add('aluno cursando')
+
+    }else{
+        a.classList.add('aluno finalizado')
+    }
     return a
 }
-const carregarAlunos = async () => {
-    
-    const alunos_Container = document.getElementById('alunos-container')
-    const aluno = document.createElement('div')
-    aluno.id = 'aluno-container'
-    aluno.classList.add('aluno-container') 
-    
-    const dados = await getAlunosCurso(item)
-   
-    const card = dados.curso.map(createAlunos)
-    
-    aluno.replaceChildren(...card)
-    alunos_Container.appendChild(aluno)
-    
-} 
-const item = localStorage.getItem('sigla')
-console.log((carregarAlunos(item)))
-carregarAlunos(item)
-const carregarAlunoStatus = async (event) => {
-    
-    if(event.target.textContent == 'Status'){
-        carregarAlunos(localStorage.getItem('sigla', event))
-    }
-    else{
-        const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('sigla'))
-        const alunoContainer = document.getElementById('aluno-container')
-        const card = dados.curso.map(createAlunos)
-        alunoContainer.replaceChildren(...card)
-    }
+/* const tituloMain = async (dados) => {
+    const h2 = document.querySelector('.titulo')
+    h2.textContent = dados.curso
+
+    return h2
+} */
+
+const loadCard = async (nomeCurso) => {
+
+    const main = document.querySelector('main')
+
+    const div = document.createElement('div')
+
+    const alunos = await getAlunosCurso(nomeCurso)
+
+    console.log(alunos)
+
+    /* const titulo = tituloMain(alunos[0]) */
+
+    const criaCard = alunos.map(criarCard)
+
+    div.replaceChildren(...criaCard)
+
+    /* main.appendChild(titulo) */
+    main.appendChild(div)
+
 }
 
-document.getElementById('status').addEventListener('click', (event)=>{ 
-
-    carregarAlunos(localStorage.getItem('sigla'))
-
-})
-
+const curso = getAlunosCurso(localStorage.getItem('sigla'))
+console.log(curso)
+loadCard(curso)
